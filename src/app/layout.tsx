@@ -1,0 +1,95 @@
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp"
+import { FloatingChat } from "@/components/layout/FloatingChat"
+import "./globals.css"
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+export const metadata: Metadata = {
+  title: {
+    default: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
+    template: "%s | OráculoAI",
+  },
+  description:
+    "Agência de IA para pequenos negócios brasileiros. Automatização com chatbots, consultoria em IA, segurança digital e ecossistema completo com Hostinger.",
+  keywords: [
+    "IA para pequenos negócios",
+    "chatbot whatsapp",
+    "automação de atendimento",
+    "consultoria IA",
+    "agência de IA Brasil",
+    "hostinger parceiro",
+    "oraculoai",
+  ],
+  openGraph: {
+    title: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
+    description:
+      "Automação inteligente, chatbots, consultoria em IA e ecossistema completo com Hostinger para transformar seu negócio.",
+    url: "https://oraculoai.cloud",
+    siteName: "OráculoAI",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OráculoAI",
+    description:
+      "IA que funciona de verdade para o seu pequeno negócio crescer.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="pt-BR" className={`${inter.variable} h-full antialiased`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "OráculoAI",
+              url: "https://oraculoai.cloud",
+              logo: "https://oraculoai.cloud/logo.png",
+              description:
+                "Agência de IA para pequenos negócios e empreendedores brasileiros.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+55-11-99999-9999",
+                contactType: "sales",
+                availableLanguage: ["Portuguese", "English"],
+              },
+              sameAs: [
+                "https://instagram.com/oraculoai",
+                "https://linkedin.com/company/oraculoai",
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-sans">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <FloatingWhatsApp />
+        <FloatingChat />
+      </body>
+    </html>
+  )
+}
