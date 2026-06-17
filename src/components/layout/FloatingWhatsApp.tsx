@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircle, X } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 import { SITE } from "@/lib/constants"
 
 export function FloatingWhatsApp() {

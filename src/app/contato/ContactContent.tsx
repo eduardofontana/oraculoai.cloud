@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, Sparkles } from "lucide-react"
+import { Mail, Phone, MapPin, Send, CheckCircle, Sparkles } from "lucide-react"
 import { CONTACT, SITE } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
@@ -160,40 +160,48 @@ export function ContactContent() {
                   className="bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-premium border border-gray-100 dark:border-gray-700 space-y-5"
                 >
                   <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Nome *</label>
-                      <input
-                        name="nome"
-                        required
-                        placeholder="Seu nome completo"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Email *</label>
-                      <input
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="seu@email.com"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Telefone</label>
-                      <input
-                        name="telefone"
-                        placeholder="(11) 99999-9999"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Assunto *</label>
-                      <select
-                        name="assunto"
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
-                      >
+                  <div>
+                    <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Nome *</label>
+                    <input
+                      id="nome"
+                      name="nome"
+                      autoComplete="name"
+                      required
+                      placeholder="Seu nome completo"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Email *</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      placeholder="seu@email.com"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="telefone" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Telefone</label>
+                    <input
+                      id="telefone"
+                      name="telefone"
+                      autoComplete="tel"
+                      placeholder="(11) 99999-9999"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="assunto" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Assunto *</label>
+                    <select
+                      id="assunto"
+                      name="assunto"
+                      autoComplete="off"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900 outline-none transition-all text-sm"
+                    >
                         <option value="">Selecione...</option>
                         <option value="Quero um orçamento">Quero um orçamento</option>
                         <option value="Dúvida sobre serviços">Dúvida sobre serviços</option>
@@ -204,9 +212,11 @@ export function ContactContent() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Mensagem *</label>
+                    <label htmlFor="mensagem" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">Mensagem *</label>
                     <textarea
+                      id="mensagem"
                       name="mensagem"
+                      autoComplete="off"
                       required
                       rows={5}
                       placeholder="Conte como podemos ajudar..."

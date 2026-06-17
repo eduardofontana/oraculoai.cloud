@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { ClipboardCheck, Send, CheckCircle, Loader2 } from "lucide-react"
+import { ClipboardCheck, Send, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 
 const schema = z.object({
@@ -143,44 +143,53 @@ export function DiagnosisForm() {
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Nome *</label>
+                <label htmlFor="nome" className="block text-sm font-semibold text-gray-700 mb-1.5">Nome *</label>
                 <input
+                  id="nome"
                   {...register("nome")}
+                  autoComplete="name"
                   placeholder="Seu nome completo"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
                 />
                 {errors.nome && <p className="text-red-500 text-xs mt-1">{errors.nome.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email *</label>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">Email *</label>
                 <input
+                  id="email"
                   {...register("email")}
+                  autoComplete="email"
                   placeholder="seu@email.com"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Telefone / WhatsApp *</label>
+                <label htmlFor="telefone" className="block text-sm font-semibold text-gray-700 mb-1.5">Telefone / WhatsApp *</label>
                 <input
+                  id="telefone"
                   {...register("telefone")}
+                  autoComplete="tel"
                   placeholder="(11) 99999-9999"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
                 />
                 {errors.telefone && <p className="text-red-500 text-xs mt-1">{errors.telefone.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Empresa *</label>
+                <label htmlFor="empresa" className="block text-sm font-semibold text-gray-700 mb-1.5">Empresa *</label>
                 <input
+                  id="empresa"
                   {...register("empresa")}
+                  autoComplete="organization"
                   placeholder="Nome da sua empresa"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
                 />
                 {errors.empresa && <p className="text-red-500 text-xs mt-1">{errors.empresa.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Segmento *</label>
+                <label htmlFor="segmento" className="block text-sm font-semibold text-gray-700 mb-1.5">Segmento *</label>
                 <select
+                  id="segmento"
                   {...register("segmento")}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm bg-white"
                 >
@@ -192,8 +201,9 @@ export function DiagnosisForm() {
                 {errors.segmento && <p className="text-red-500 text-xs mt-1">{errors.segmento.message}</p>}
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-1.5">Funcionários *</label>
+                <label htmlFor="funcionarios" className="block text-sm font-semibold text-gray-700 mb-1.5">Funcionários *</label>
                 <select
+                  id="funcionarios"
                   {...register("funcionarios")}
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm bg-white"
                 >
@@ -206,17 +216,19 @@ export function DiagnosisForm() {
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                Qual seu principal desafio? *
-              </label>
-              <textarea
-                {...register("desafio")}
-                rows={4}
-                placeholder="Conte um pouco sobre os desafios que seu negócio enfrenta hoje..."
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm resize-none"
-              />
-              {errors.desafio && <p className="text-red-500 text-xs mt-1">{errors.desafio.message}</p>}
+              <div>
+                <label htmlFor="desafio" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  Qual seu principal desafio? *
+                </label>
+                <textarea
+                  id="desafio"
+                  {...register("desafio")}
+                  autoComplete="off"
+                  rows={4}
+                  placeholder="Conte um pouco sobre os desafios que seu negócio enfrenta hoje..."
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#7B4DFF] focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm resize-none"
+                />
+                {errors.desafio && <p className="text-red-500 text-xs mt-1">{errors.desafio.message}</p>}
             </div>
 
             <p className="text-xs text-gray-400">

@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { Menu, X, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/Button"
 import { ThemeToggle } from "@/components/ui/ThemeToggle"
 import { NAV_LINKS, SITE } from "@/lib/constants"
 
@@ -64,12 +63,12 @@ export function Header() {
             >
               Fale Conosco
             </a>
-            <a
+            <Link
               href="/#diagnostico"
               className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-4 py-2 text-sm bg-[#7B4DFF] hover:bg-[#6D28D9] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
             >
               Diagnóstico Grátis
-            </a>
+            </Link>
           </div>
 
           <button
@@ -113,12 +112,13 @@ export function Header() {
                 >
                   Fale Conosco
                 </a>
-                <a
+                <Link
                   href="/#diagnostico"
+                  onClick={() => setIsMobileOpen(false)}
                   className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-6 py-3 text-base bg-[#7B4DFF] hover:bg-[#6D28D9] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 w-full"
                 >
                   Diagnóstico Grátis
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -3,12 +3,11 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { RESULTS } from "@/lib/constants"
-import { Badge } from "@/components/ui/Badge"
 
 function AnimatedCounter({ value, label }: { value: string; label: string }) {
   return (
-    <div className="text-center">
-      <div className="text-5xl sm:text-6xl lg:text-7xl font-bold gradient-text mb-2">
+    <div className="text-center px-1 sm:px-0">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2 break-words">
         {value}
       </div>
       <p className="text-base font-medium text-[#0A2540] dark:text-white">{label}</p>
