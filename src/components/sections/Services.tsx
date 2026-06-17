@@ -34,8 +34,8 @@ function ServiceCard({ icon, title, description, gradient, index }: ServiceCardP
         )}>
           {Icon && <Icon className="w-7 h-7 text-white" />}
         </div>
-        <h3 className="text-lg font-bold text-[#0A2540] mb-2">{title}</h3>
-        <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+        <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{title}</h3>
+        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{description}</p>
       </Card>
     </motion.div>
   )
@@ -51,8 +51,8 @@ function PricingCard({ plan, index }: { plan: (typeof SERVICES.pricing.plans)[nu
       className={cn(
         "relative rounded-2xl p-8 border-2 transition-all duration-300 hover:-translate-y-1",
         plan.highlight
-          ? "bg-[#0A2540] text-white border-transparent shadow-premium-xl"
-          : "bg-white text-[#0A2540] border-gray-100 hover:shadow-premium-lg"
+          ? "bg-[#0A2540] dark:bg-[#0A2540] text-white border-transparent shadow-premium-xl"
+          : "bg-white dark:bg-gray-800 text-[#0A2540] dark:text-white border-gray-100 dark:border-gray-700 hover:shadow-premium-lg"
       )}
     >
       {plan.highlight && (
@@ -75,7 +75,7 @@ function PricingCard({ plan, index }: { plan: (typeof SERVICES.pricing.plans)[nu
               "w-5 h-5 flex-shrink-0 mt-0.5",
               plan.highlight ? "text-emerald-400" : "text-emerald-500"
             )} />
-            <span className={plan.highlight ? "text-gray-200" : "text-gray-600"}>{feature}</span>
+            <span className={plan.highlight ? "text-gray-200" : "text-gray-600 dark:text-gray-300"}>{feature}</span>
           </li>
         ))}
       </ul>
@@ -96,7 +96,7 @@ function PricingCard({ plan, index }: { plan: (typeof SERVICES.pricing.plans)[nu
 
 export function Services() {
   return (
-    <section id="servicos" className="section-padding bg-white">
+    <section id="servicos" className="section-padding bg-white dark:bg-gray-900">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

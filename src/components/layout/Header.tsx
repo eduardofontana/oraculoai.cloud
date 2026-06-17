@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Menu, X, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/Button"
+import { ThemeToggle } from "@/components/ui/ThemeToggle"
 import { NAV_LINKS, SITE } from "@/lib/constants"
 
 export function Header() {
@@ -38,7 +39,7 @@ export function Header() {
             <div className="flex items-center justify-center w-10 h-10 rounded-xl gradient-accent shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-[#0A2540]">{SITE.name}</span>
+            <span className="text-xl font-bold text-[#0A2540] dark:text-white">{SITE.name}</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -46,7 +47,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-500 hover:text-[#7B4DFF] transition-colors duration-200"
+                className="text-sm font-medium text-gray-500 hover:text-[#7B4DFF] dark:text-gray-400 dark:hover:text-[#9B7DFF] transition-colors duration-200"
               >
                 {link.label}
               </Link>
@@ -54,6 +55,7 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <a
               href={`https://wa.me/${SITE.whatsapp}`}
               target="_blank"
@@ -72,7 +74,7 @@ export function Header() {
 
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Menu"
           >
             {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -87,7 +89,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden border-t border-gray-100 bg-white/95 backdrop-blur-xl"
+            className="lg:hidden border-t border-gray-100 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl"
           >
             <div className="container-main py-6 space-y-4">
               <nav className="flex flex-col gap-2">
@@ -96,13 +98,13 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileOpen(false)}
-                    className="px-4 py-3 rounded-xl text-base font-medium text-gray-600 hover:bg-purple-50 hover:text-[#7B4DFF] transition-colors"
+                    className="px-4 py-3 rounded-xl text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 hover:text-[#7B4DFF] dark:hover:text-[#9B7DFF] transition-colors"
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-              <div className="flex flex-col gap-3 pt-4 border-t border-gray-100">
+              <div className="flex flex-col gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}
                   target="_blank"

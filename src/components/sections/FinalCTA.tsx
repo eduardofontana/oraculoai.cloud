@@ -7,7 +7,7 @@ import { CTA_FINAL } from "@/lib/constants"
 
 export function FinalCTA() {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100/30 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl" />
@@ -25,11 +25,11 @@ export function FinalCTA() {
             <Sparkles className="w-8 h-8 text-white" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A2540] mb-4 text-balance">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A2540] dark:text-white mb-4 text-balance">
             {CTA_FINAL.title}
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-500 mb-8 max-w-xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-8 max-w-xl mx-auto">
             {CTA_FINAL.subtitle}
           </p>
 
@@ -45,7 +45,7 @@ export function FinalCTA() {
               href="https://wa.me/5511999999999?text=Olá!%20Quero%20falar%20com%20um%20consultor%20da%20OráculoAI."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-8 py-4 text-lg bg-white text-[#0A2540] border-2 border-[#0A2540] hover:bg-[#0A2540] hover:text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-8 py-4 text-lg bg-white dark:bg-gray-800 text-[#0A2540] dark:text-white border-2 border-[#0A2540] dark:border-white hover:bg-[#0A2540] dark:hover:bg-white hover:text-white dark:hover:text-[#0A2540]"
             >
               {CTA_FINAL.secondary}
             </a>

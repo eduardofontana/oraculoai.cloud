@@ -127,7 +127,7 @@ export const SERVICES = {
     plans: [
       {
         name: "Início Rápido",
-        price: "R$ 997",
+        price: "R$ 97",
         period: "/mês",
         description:
           "Perfeito para quem está começando a automatizar o atendimento.",
@@ -139,14 +139,14 @@ export const SERVICES = {
           "Relatórios semanais",
           "Suporte por WhatsApp",
           "Site institucional básico",
-          "Hospedagem Hostinger 1 ano grátis",
-          "E-mail profissional hostinger",
+          "Hospedagem Hostinger 1 ano grátis (1 site)",
+          "E-mail profissional Hostinger (1 conta, grátis 1 ano)",
         ],
         cta: "Começar Agora",
       },
       {
         name: "Crescimento",
-        price: "R$ 2.497",
+        price: "R$ 297",
         period: "/mês",
         description:
           "Para negócios que querem escalar com IA e atendimento premium.",
@@ -158,6 +158,7 @@ export const SERVICES = {
           "Consultoria em IA mensal",
           "Relatórios em tempo real",
           "Site profissional + blog",
+          "Hospedagem Hostinger Premium (até 100 sites)",
           "Integração com CRM",
           "Segurança digital básica",
         ],
@@ -165,7 +166,7 @@ export const SERVICES = {
       },
       {
         name: "Ecossistema Total",
-        price: "R$ 4.997",
+        price: "R$ 697",
         period: "/mês",
         description:
           "Solução completa — o ecossistema digital que seu negócio merece.",
@@ -178,7 +179,8 @@ export const SERVICES = {
           "Segurança digital completa + LGPD",
           "Gestão de tráfego pago",
           "Suporte prioritário 24h",
-          "Sites ilimitados Hostinger",
+          "Hospedagem Cloud Hostinger (até 300 sites)",
+          "E-mail profissional (10 contas, grátis 1 ano)",
         ],
         cta: "Falar com Consultor",
       },

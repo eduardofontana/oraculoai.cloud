@@ -16,12 +16,12 @@ export function FloatingWhatsApp() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-20 right-0 bg-white rounded-xl shadow-premium-xl p-4 min-w-[220px] border border-gray-100"
+            className="absolute bottom-20 right-0 bg-white dark:bg-gray-800 rounded-xl shadow-premium-xl p-4 min-w-[220px] border border-gray-100 dark:border-gray-700"
           >
-            <p className="text-sm font-medium text-gray-800 mb-1">
+            <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
               Fale com a gente!
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
                   Tire dúvidas, solicite orçamento ou agende uma conversa.
             </p>
           </motion.div>

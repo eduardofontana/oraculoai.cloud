@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp"
 import { FloatingChat } from "@/components/layout/FloatingChat"
+import { ThemeProvider } from "@/contexts/ThemeContext"
 import "./globals.css"
 
 const inter = Inter({
@@ -59,6 +60,23 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (!theme) {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  if (theme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -83,12 +101,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
-        <FloatingChat />
+      <body className="min-h-full flex flex-col font-sans bg-white dark:bg-[#0F172A] text-gray-600 dark:text-gray-300 transition-colors duration-300">
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+          <FloatingChat />
+        </ThemeProvider>
       </body>
     </html>
   )

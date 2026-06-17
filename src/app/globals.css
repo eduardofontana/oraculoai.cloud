@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme inline {
   --color-primary: #0A2540;
   --color-primary-light: #1a3a5c;
@@ -35,6 +37,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  [data-theme="dark"] body {
+    background: #0F172A;
+    color: #E2E8F0;
+  }
+
   ::selection {
     background: var(--color-accent-light);
     color: white;
@@ -55,28 +62,46 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+    background-image: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 100% 100%;
   }
 
   .glass-card {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+
+    @variant dark {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(71, 85, 105, 0.3);
+    }
   }
 
   .shadow-premium {
     box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+
+    @variant dark {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
   }
 
   .shadow-premium-lg {
     box-shadow: 0 8px 40px rgba(10, 37, 64, 0.12);
+
+    @variant dark {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+    }
   }
 
   .shadow-premium-xl {
     box-shadow: 0 20px 60px rgba(10, 37, 64, 0.16);
+
+    @variant dark {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
   }
 
   .section-padding {
@@ -86,11 +111,19 @@
   .section-title {
     @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
     color: var(--color-primary);
+
+    @variant dark {
+      color: #F1F5F9;
+    }
   }
 
   .section-subtitle {
     @apply text-lg sm:text-xl mt-4 max-w-2xl mx-auto;
     color: var(--color-gray-400);
+
+    @variant dark {
+      color: #94A3B8;
+    }
   }
 }
 

@@ -34,7 +34,7 @@ export function FloatingChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ type: "spring", duration: 0.4 }}
-            className="absolute bottom-20 left-0 w-[300px] sm:w-[360px] bg-white rounded-2xl shadow-premium-xl border border-gray-100 overflow-hidden"
+            className="absolute bottom-20 left-0 w-[300px] sm:w-[360px] bg-white dark:bg-gray-800 rounded-2xl shadow-premium-xl border border-gray-100 dark:border-gray-700 overflow-hidden"
           >
             <div className="gradient-accent p-4 text-white">
               <div className="flex items-center gap-3">
@@ -48,7 +48,7 @@ export function FloatingChat() {
               </div>
             </div>
             <div className="p-4">
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 Olá! 👋 Sou o assistente virtual da OráculoAI. Como posso ajudar?
               </p>
               <div className="space-y-2">
@@ -58,7 +58,7 @@ export function FloatingChat() {
                     href={option.href}
                     target={option.href.startsWith("http") ? "_blank" : undefined}
                     rel={option.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-purple-50 hover:text-purple-700 transition-all duration-200 text-sm font-medium text-gray-700 group"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-purple-50 dark:hover:bg-purple-900/30 hover:text-purple-700 dark:hover:text-[#9B7DFF] transition-all duration-200 text-sm font-medium text-gray-700 dark:text-gray-200 group"
                   >
                     <option.icon className="w-4 h-4 text-[#7B4DFF]" />
                     <span className="flex-1">{option.label}</span>

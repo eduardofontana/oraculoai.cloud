@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils"
 
 function AccordionItem({ q, a, isOpen, onClick }: { q: string; a: string; isOpen: boolean; onClick: () => void }) {
   return (
-    <div className="border border-gray-100 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-premium">
+    <div className="border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-premium">
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white hover:bg-gray-50/50 transition-colors"
+        className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white dark:bg-gray-800 hover:bg-gray-50/50 dark:hover:bg-gray-700/50 transition-colors"
         aria-expanded={isOpen}
       >
-        <span className="text-sm sm:text-base font-semibold text-[#0A2540] flex-1">{q}</span>
+        <span className="text-sm sm:text-base font-semibold text-[#0A2540] dark:text-white flex-1">{q}</span>
         <ChevronDown
           className={cn(
             "w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300",
@@ -32,7 +32,7 @@ function AccordionItem({ q, a, isOpen, onClick }: { q: string; a: string; isOpen
             className="overflow-hidden"
           >
             <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">{a}</p>
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">{a}</p>
             </div>
           </motion.div>
         )}
@@ -45,7 +45,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="section-padding bg-[#F8FAFC]">
+    <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export function FAQSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-50 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] mb-4">
+          <span className="inline-flex items-center gap-2 rounded-full bg-purple-50 dark:bg-purple-900/30 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] dark:text-[#9B7DFF] mb-4">
             <HelpCircle className="w-4 h-4" />
             FAQ
           </span>

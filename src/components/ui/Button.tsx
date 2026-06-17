@@ -6,15 +6,15 @@ import { cn } from "@/lib/utils"
 import { Loader2 } from "lucide-react"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B4DFF] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+  "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B4DFF] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer dark:focus:ring-offset-gray-900",
   {
     variants: {
       variant: {
         primary:
           "bg-[#7B4DFF] hover:bg-[#6D28D9] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5",
         secondary:
-          "bg-white text-[#0A2540] border-2 border-[#0A2540] hover:bg-[#0A2540] hover:text-white",
-        ghost: "text-[#0A2540] hover:bg-gray-100",
+          "bg-white dark:bg-gray-800 text-[#0A2540] dark:text-white border-2 border-[#0A2540] dark:border-white hover:bg-[#0A2540] dark:hover:bg-white hover:text-white dark:hover:text-[#0A2540]",
+        ghost: "text-[#0A2540] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700",
         outline:
           "bg-transparent border-2 border-[#7B4DFF] text-[#7B4DFF] hover:bg-[#7B4DFF] hover:text-white",
         whatsapp:

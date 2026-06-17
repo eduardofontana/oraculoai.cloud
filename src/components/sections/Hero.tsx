@@ -27,7 +27,7 @@ const itemVariants = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white dark:bg-gray-900">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl" />
@@ -42,21 +42,21 @@ export function Hero() {
           className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           <div className="max-w-2xl">
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full bg-purple-50 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] mb-6">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full bg-purple-50 dark:bg-purple-900/30 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] dark:text-[#9B7DFF] mb-6">
               <Sparkles className="w-4 h-4" />
               Agência de IA para pequenos negócios
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-[#0A2540] leading-[1.1]"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-[#0A2540] dark:text-white leading-[1.1]"
             >
               {HERO.headline}
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-gray-500 mt-6 leading-relaxed max-w-xl"
+              className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mt-6 leading-relaxed max-w-xl"
             >
               {HERO.subheadline}
             </motion.p>
@@ -74,14 +74,14 @@ export function Hero() {
                   e.preventDefault()
                   ;(document.querySelector('[aria-label="Abrir chat Oráculo IA"]') as HTMLElement)?.click()
                 }}
-                className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-8 py-4 text-lg bg-white text-[#0A2540] border-2 border-[#0A2540] hover:bg-[#0A2540] hover:text-white cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-8 py-4 text-lg bg-white dark:bg-gray-800 text-[#0A2540] dark:text-white border-2 border-[#0A2540] dark:border-white hover:bg-[#0A2540] dark:hover:bg-white hover:text-white dark:hover:text-[#0A2540] cursor-pointer"
               >
                 <Bot className="w-5 h-5" />
                 {HERO.ctaSecondary}
               </button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-6 mt-8 text-sm text-gray-400">
+            <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-6 mt-8 text-sm text-gray-400 dark:text-gray-500">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
