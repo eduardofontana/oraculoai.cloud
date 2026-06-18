@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://oraculoai.cloud"),
   title: {
-    default: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
+    default: "OráculoAI — IA para pequenos negócios brasileiros",
     template: "%s | OráculoAI",
   },
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "oraculoai",
   ],
   openGraph: {
-    title: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
+    title: "OráculoAI — IA que funciona para seu pequeno negócio",
     description:
       "Automação inteligente, chatbots, consultoria em IA e ecossistema completo com Hostinger para transformar seu negócio.",
     url: "https://oraculoai.cloud",
