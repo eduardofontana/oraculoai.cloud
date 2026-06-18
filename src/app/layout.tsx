@@ -14,6 +14,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oraculoai.cloud"),
   title: {
     default: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
     template: "%s | OráculoAI",
@@ -37,12 +38,21 @@ export const metadata: Metadata = {
     siteName: "OráculoAI",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "OráculoAI",
     description:
       "IA que funciona de verdade para o seu pequeno negócio crescer.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

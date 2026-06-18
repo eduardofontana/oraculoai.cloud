@@ -1,0 +1,22 @@
+# Security Contact Information
+# ============================
+
+# Contacto para reportar vulnerabilidades de segurança
+Contact: mailto:contato@oraculoai.cloud
+Contact: https://oraculoai.cloud/contato
+
+# Preferência por relatórios criptografados (se aplicável)
+Encryption: https://oraculoai.cloud/.well-known/pgp-key.txt
+
+# Política de divulgação
+Policy: https://oraculoai.cloud/security-policy
+
+# Informações sobre o projeto
+Project: https://oraculoai.cloud
+Preferred-Languages: pt, en
+
+# Timestamp de quando este arquivo foi criado/atualizado
+Expires: 2027-06-18T00:00:00.000Z
+
+# Canais de divulgação autorizados
+Canonical: https://oraculoai.cloud/.well-known/security.txt
