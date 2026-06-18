@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero"
+import { PoweredBy } from "@/components/sections/PoweredBy"
 import { Problems } from "@/components/sections/Problems"
 import { Services } from "@/components/sections/Services"
 import { HowItWorks } from "@/components/sections/HowItWorks"
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <PoweredBy />
       <Problems />
       <Services />
       <HowItWorks />
