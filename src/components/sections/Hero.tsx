@@ -98,24 +98,21 @@ export function Hero() {
 
           <motion.div variants={itemVariants} className="relative hidden lg:block">
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-premium-xl">
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Logo watermark — visível através do gradiente semi-transparente */}
-                <div className="absolute inset-0 flex items-center justify-center p-12">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-3xl">
+                <div className="absolute inset-0 flex items-center justify-center p-8 md:p-12">
                   <img
                     src="/oraculoai_logo.png"
                     alt=""
                     aria-hidden="true"
-                    className="w-full h-full object-contain opacity-[0.07] dark:opacity-[0.05] select-none"
+                    className="w-full h-full object-contain opacity-15 dark:opacity-10 select-none"
                   />
                 </div>
-                {/* Glow orbs sutis para profundidade */}
-                <div className="absolute -top-16 -right-16 w-72 h-72 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl" />
-                <div className="absolute -bottom-16 -left-16 w-72 h-72 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-200/10 to-blue-200/10 rounded-full blur-3xl" />
+                <div className="absolute -top-20 -right-20 w-80 h-80 bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-400/15 dark:bg-blue-500/10 rounded-full blur-3xl" />
+                <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-pink-300/10 dark:bg-pink-500/5 rounded-full blur-3xl" />
               </div>
               <div className="absolute inset-0 flex items-center justify-center p-10">
                 <div className="w-full h-full relative">
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-100/80 to-blue-50/80 rounded-2xl" />
                   <div className="absolute inset-6 p-6 flex flex-col justify-between">
                     <div className="flex items-start justify-between">
                       <div className="bg-white/90 backdrop-blur rounded-xl p-4 shadow-premium max-w-[200px]">
