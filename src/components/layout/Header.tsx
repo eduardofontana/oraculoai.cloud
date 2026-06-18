@@ -36,7 +36,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
-              <img src="/oraculoai-logo.png" alt={SITE.name} className="w-full h-full object-cover" />
+              <img src="/oraculoai_logo.png" alt={SITE.name} className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-bold text-[#0A2540] dark:text-white">{SITE.name}</span>
           </Link>
