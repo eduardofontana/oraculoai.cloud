@@ -98,7 +98,50 @@ export function Hero() {
 
           <motion.div variants={itemVariants} className="relative hidden lg:block">
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-premium-xl">
-              <div className="absolute inset-0" />
+              <div className="absolute inset-0 opacity-20 dark:opacity-10">
+                <svg className="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <circle cx="20" cy="20" r="1.5" fill="#7B4DFF" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#grid)" />
+                  <g stroke="#7B4DFF" strokeWidth="0.4" fill="none" opacity="0.3">
+                    <path d="M60,40 L100,70 L140,40 L180,70" />
+                    <path d="M220,40 L260,70 L300,40 L340,70" />
+                    <path d="M80,100 L120,130 L160,100 L200,130" />
+                    <path d="M120,160 L160,190 L200,160 L240,190" />
+                    <path d="M60,220 L100,250 L140,220 L180,250" />
+                    <path d="M200,220 L240,250 L280,220 L320,250" />
+                  </g>
+                  <g fill="#7B4DFF" opacity="0.4">
+                    <circle cx="60" cy="40" r="3" />
+                    <circle cx="100" cy="70" r="3" />
+                    <circle cx="140" cy="40" r="3" />
+                    <circle cx="180" cy="70" r="3" />
+                    <circle cx="220" cy="40" r="3" />
+                    <circle cx="260" cy="70" r="3" />
+                    <circle cx="300" cy="40" r="3" />
+                    <circle cx="340" cy="70" r="3" />
+                    <circle cx="80" cy="100" r="3" />
+                    <circle cx="120" cy="130" r="3" />
+                    <circle cx="160" cy="100" r="3" />
+                    <circle cx="200" cy="130" r="3" />
+                    <circle cx="120" cy="160" r="3" />
+                    <circle cx="160" cy="190" r="3" />
+                    <circle cx="200" cy="160" r="3" />
+                    <circle cx="240" cy="190" r="3" />
+                    <circle cx="60" cy="220" r="3" />
+                    <circle cx="100" cy="250" r="3" />
+                    <circle cx="140" cy="220" r="3" />
+                    <circle cx="180" cy="250" r="3" />
+                    <circle cx="200" cy="220" r="3" />
+                    <circle cx="240" cy="250" r="3" />
+                    <circle cx="280" cy="220" r="3" />
+                    <circle cx="320" cy="250" r="3" />
+                  </g>
+                </svg>
+              </div>
               <div className="absolute inset-0 flex items-center justify-center p-10">
                 <div className="w-full h-full relative">
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-100/80 to-blue-50/80 rounded-2xl" />

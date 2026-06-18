@@ -38,7 +38,7 @@ export function Header() {
             <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
               <img src="/oraculoai_logo.png" alt={SITE.name} className="w-full h-full object-cover" />
             </div>
-            <span className="text-xl font-bold text-[#0A2540] dark:text-white">{SITE.name}</span>
+            <span className="text-xl font-bold text-[#0A2540] dark:text-white drop-shadow-[0_1px_6px_rgba(123,77,255,0.3)] dark:drop-shadow-[0_1px_6px_rgba(155,125,255,0.4)]">{SITE.name}</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
