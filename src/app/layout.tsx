@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/oraculoai-logo.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "OráculoAI — IA que funciona de verdade para seu pequeno negócio",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "OráculoAI",
     description:
       "IA que funciona de verdade para o seu pequeno negócio crescer.",
-    images: ["/oraculoai-logo.png"],
+    images: ["/og-image.svg"],
   },
   robots: {
     index: true,
