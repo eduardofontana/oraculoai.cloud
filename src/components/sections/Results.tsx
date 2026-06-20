@@ -1,27 +1,95 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
+import { TrendingUp, BarChart3, Clock, Zap } from "lucide-react"
 import { RESULTS } from "@/lib/constants"
 
-function AnimatedCounter({ value, label }: { value: string; label: string }) {
+interface CounterProps {
+  prefix?: string
+  suffix?: string
+  value: string
+  label: string
+  icon: React.ReactNode
+  isInView: boolean
+}
+
+function AnimatedCounter({ prefix = "", suffix = "", value, label, icon, isInView }: CounterProps) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!isInView) return
+
+    const numericValue = parseInt(value.replace(/[^0-9]/g, ""))
+    if (isNaN(numericValue)) return
+
+    const duration = 2000
+    const steps = 60
+    const increment = numericValue / steps
+    let current = 0
+    let step = 0
+
+    const timer = setInterval(() => {
+      step++
+      current = Math.min(increment * step, numericValue)
+      setCount(Math.round(current))
+      if (step >= steps) clearInterval(timer)
+    }, duration / steps)
+
+    return () => clearInterval(timer)
+  }, [isInView, value])
+
+  const displayValue = value.includes("%")
+    ? `${prefix}${count}${suffix}%`
+    : value.includes("24")
+    ? value
+    : value.includes("x")
+    ? `${prefix}${count}${suffix}x`
+    : `${prefix}${count}${suffix}`
+
   return (
-    <div className="text-center px-1 sm:px-0">
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2 break-words">
-        {value}
+    <div className="text-center">
+      <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-4">
+        {icon}
+      </div>
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">
+        {displayValue}
       </div>
       <p className="text-base font-medium text-[#0A2540] dark:text-white">{label}</p>
     </div>
   )
 }
 
+const iconMap = [
+  <TrendingUp key="0" className="w-6 h-6 text-[#7B4DFF]" />,
+  <BarChart3 key="1" className="w-6 h-6 text-[#7B4DFF]" />,
+  <Clock key="2" className="w-6 h-6 text-[#7B4DFF]" />,
+  <Zap key="3" className="w-6 h-6 text-[#7B4DFF]" />,
+]
+
 export function Results() {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); observer.disconnect() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="cases" className="section-padding bg-white dark:bg-gray-900">
-      <div className="container-main">
+    <section id="cases" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-main relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +104,7 @@ export function Results() {
           <p className="section-subtitle">{RESULTS.subtitle}</p>
         </motion.div>
 
-        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
           {RESULTS.metrics.map((metric, index) => (
             <motion.div
               key={metric.label}
@@ -44,10 +112,17 @@ export function Results() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/40 dark:to-blue-900/40 border border-purple-100/50 dark:border-purple-800/30 shadow-premium"
+              className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-premium hover:shadow-premium-lg hover:-translate-y-1 transition-all duration-300"
             >
-              {isInView && <AnimatedCounter value={metric.value} label={metric.label} />}
-              <p className="text-sm text-gray-500 text-center mt-3">{metric.description}</p>
+              <AnimatedCounter
+                value={metric.value}
+                label={metric.label}
+                icon={iconMap[index]}
+                isInView={isInView}
+                prefix=""
+                suffix=""
+              />
+              <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-3 leading-relaxed">{metric.description}</p>
             </motion.div>
           ))}
         </div>

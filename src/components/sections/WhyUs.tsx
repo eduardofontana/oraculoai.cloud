@@ -11,8 +11,12 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function WhyUs() {
   return (
-    <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950">
-      <div className="container-main">
+    <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-main relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +24,7 @@ export function WhyUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-50 dark:bg-purple-900/30 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] dark:text-[#9B7DFF] mb-4">
+          <span className="inline-flex items-center gap-2 rounded-full bg-purple-50 dark:bg-purple-900/30 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] dark:text-[#9B7DFF] mb-4 border border-purple-200/50 dark:border-purple-700/30">
             <Sparkles className="w-4 h-4" />
             Diferenciais
           </span>
@@ -39,8 +43,8 @@ export function WhyUs() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <Card hover className="h-full">
-                  <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                <Card hover className="h-full group">
+                  <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {Icon && <Icon className="w-6 h-6 text-[#7B4DFF] dark:text-[#9B7DFF]" />}
                   </div>
                   <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{benefit.title}</h3>
@@ -55,9 +59,9 @@ export function WhyUs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-lg mx-auto bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-8 text-center shadow-premium"
+          className="max-w-lg mx-auto bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-8 text-center shadow-premium hover:shadow-premium-lg transition-all duration-300"
         >
-          <div className="w-16 h-16 rounded-2xl gradient-accent flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 rounded-2xl gradient-accent flex items-center justify-center mx-auto mb-4 shadow-lg shadow-purple-500/20">
             <Award className="w-8 h-8 text-white" />
           </div>
           <h3 className="text-xl font-bold text-[#0A2540] dark:text-white mb-2">Parceiro Oficial Hostinger</h3>
@@ -68,9 +72,9 @@ export function WhyUs() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#7B4DFF] hover:text-[#6D28D9] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#7B4DFF] hover:text-[#6D28D9] transition-colors group"
           >
-            Saiba mais sobre a parceria <Rocket className="w-4 h-4" />
+            Saiba mais sobre a parceria <Rocket className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </motion.div>
       </div>

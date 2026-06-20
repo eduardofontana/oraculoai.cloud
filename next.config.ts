@@ -17,6 +17,12 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
+  images: {
+    qualities: [75, 90],
+    localPatterns: [
+      { pathname: "/**" },
+    ],
+  },
   async headers() {
     return [
       {

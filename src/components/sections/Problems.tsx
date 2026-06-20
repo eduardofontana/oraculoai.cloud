@@ -28,8 +28,12 @@ const itemVariants = {
 
 export function Problems() {
   return (
-    <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950">
-      <div className="container-main">
+    <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-red-100/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-main relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +41,7 @@ export function Problems() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full bg-purple-50 dark:bg-purple-900/30 px-4 py-1.5 text-sm font-medium text-[#7B4DFF] dark:text-[#9B7DFF] mb-4">
+          <span className="inline-flex items-center gap-2 rounded-full bg-red-50 dark:bg-red-900/30 px-4 py-1.5 text-sm font-medium text-red-500 dark:text-red-400 mb-4 border border-red-200/50 dark:border-red-800/30">
             Dores reais
           </span>
           <h2 className="section-title">{PROBLEMS.title}</h2>
@@ -55,8 +59,8 @@ export function Problems() {
             const Icon = iconMap[problem.icon]
             return (
               <motion.div key={problem.title} variants={itemVariants}>
-                <Card hover className="h-full">
-                  <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center mb-4">
+                <Card hover className="h-full group">
+                  <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     {Icon && <Icon className="w-6 h-6 text-red-500 dark:text-red-400" />}
                   </div>
                    <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{problem.title}</h3>

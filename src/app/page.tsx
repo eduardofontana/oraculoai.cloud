@@ -1,14 +1,16 @@
 import { Hero } from "@/components/sections/Hero"
 import { PoweredBy } from "@/components/sections/PoweredBy"
-import { Problems } from "@/components/sections/Problems"
-import { Services } from "@/components/sections/Services"
-import { HowItWorks } from "@/components/sections/HowItWorks"
-import { Results } from "@/components/sections/Results"
-import { WhyUs } from "@/components/sections/WhyUs"
-import { Testimonials } from "@/components/sections/Testimonials"
-import { FAQSection } from "@/components/sections/FAQ"
-import { FinalCTA } from "@/components/sections/FinalCTA"
-import { DiagnosisForm } from "@/components/forms/DiagnosisForm"
+import dynamic from "next/dynamic"
+
+const Problems = dynamic(() => import("@/components/sections/Problems").then((m) => m.Problems))
+const Services = dynamic(() => import("@/components/sections/Services").then((m) => m.Services))
+const HowItWorks = dynamic(() => import("@/components/sections/HowItWorks").then((m) => m.HowItWorks))
+const Results = dynamic(() => import("@/components/sections/Results").then((m) => m.Results))
+const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then((m) => m.WhyUs))
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then((m) => m.Testimonials))
+const DiagnosisForm = dynamic(() => import("@/components/forms/DiagnosisForm").then((m) => m.DiagnosisForm))
+const FAQSection = dynamic(() => import("@/components/sections/FAQ").then((m) => m.FAQSection))
+const FinalCTA = dynamic(() => import("@/components/sections/FinalCTA").then((m) => m.FinalCTA))
 
 export default function Home() {
   return (

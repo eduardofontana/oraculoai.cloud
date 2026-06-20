@@ -352,7 +352,7 @@ export const FAQ = {
     },
     {
       q: "Quanto custa para começar?",
-      a: "Nosso plano Início Rápido custa R$ 997/mês e já inclui chatbot, site básico e hospedagem Hostinger grátis por 1 ano. Fazemos um diagnóstico gratuito para indicar o melhor plano.",
+      a: "Nosso plano Início Rápido custa R$ 97/mês e já inclui chatbot, site básico e hospedagem Hostinger grátis por 1 ano. Fazemos um diagnóstico gratuito para indicar o melhor plano.",
     },
     {
       q: "Vocês atendem qualquer tipo de negócio?",
