@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer"
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp"
 import { FloatingChat } from "@/components/layout/FloatingChat"
 import { ThemeProvider } from "@/contexts/ThemeContext"
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const inter = Inter({
@@ -118,6 +119,7 @@ export default function RootLayout({
           <FloatingWhatsApp />
           <FloatingChat />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
