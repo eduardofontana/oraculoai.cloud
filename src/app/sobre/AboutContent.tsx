@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Sparkles, Target, Eye, Heart, Shield } from "lucide-react"
 import { ABOUT } from "@/lib/constants"
 import { Card } from "@/components/ui/Card"
+import { AdBanner } from "@/components/ads/AdBanner"
 
 const valueIcons = [Target, Eye, Heart, Shield]
 
@@ -91,6 +92,8 @@ export function AboutContent() {
               )
             })}
           </div>
+
+          <AdBanner slot="about_values_team" format="horizontal" className="my-12" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

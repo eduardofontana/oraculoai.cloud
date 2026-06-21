@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle, Sparkles } from "lucide-react"
 import { CONTACT, SITE } from "@/lib/constants"
 import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
+import { AdBanner } from "@/components/ads/AdBanner"
 
 const contactIcons = [Mail, Phone, MapPin]
 
@@ -66,6 +67,8 @@ export function ContactContent() {
           </motion.div>
         </div>
       </section>
+
+      <AdBanner slot="contact_hero_form" format="horizontal" className="my-8" />
 
       <section className="section-padding bg-[#F8FAFC] dark:bg-gray-950">
         <div className="container-main">

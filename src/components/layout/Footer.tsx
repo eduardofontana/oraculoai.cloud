@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Sparkles, Heart } from "lucide-react"
-import { SITE, NAV_LINKS } from "@/lib/constants"
+import { SITE, NAV_LINKS, LEGAL_LINKS } from "@/lib/constants"
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="bg-[#0A2540] text-white">
       <div className="container-main py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <div className="flex items-center justify-center w-9 h-9 rounded-lg gradient-accent">
@@ -48,6 +48,22 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Páginas</h4>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {LEGAL_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

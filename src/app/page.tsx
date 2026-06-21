@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero"
+import { AdBanner } from "@/components/ads/AdBanner"
 import dynamic from "next/dynamic"
 
 const Problems = dynamic(() => import("@/components/sections/Problems").then((m) => m.Problems))
@@ -18,11 +19,13 @@ export default function Home() {
       <Hero />
       <Problems />
       <Services />
+      <AdBanner slot="home_services_howitworks" format="horizontal" className="my-8" />
       <HowItWorks />
       <Results />
       <Cases />
       <WhyUs />
       <Testimonials />
+      <AdBanner slot="home_testimonials_diagnosis" format="horizontal" className="my-8" />
       <DiagnosisForm />
       <FAQSection />
       <FinalCTA />

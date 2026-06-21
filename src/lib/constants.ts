@@ -441,6 +441,12 @@ export const CTA_FINAL = {
   secondary: "Quero falar com um consultor",
 } as const
 
+export const LEGAL_LINKS = [
+  { label: "Política de Privacidade", href: "/privacidade" },
+  { label: "Termos de Uso", href: "/termos" },
+  { label: "Política de Cookies", href: "/cookies" },
+] as const
+
 export const CONTACT = {
   title: "Entre em contato",
   subtitle: "Tire dúvidas, solicite um orçamento ou agende uma conversa.",

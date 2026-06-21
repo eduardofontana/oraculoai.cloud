@@ -5,7 +5,10 @@ import { Footer } from "@/components/layout/Footer"
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp"
 import { FloatingChat } from "@/components/layout/FloatingChat"
 import { ThemeProvider } from "@/contexts/ThemeContext"
-import { Analytics } from "@vercel/analytics/next"
+import { ConsentProvider } from "@/contexts/ConsentContext"
+import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner"
+import { AdSenseScript } from "@/components/ads/AdSenseScript"
+import { ConditionalAnalytics } from "@/components/ads/ConditionalAnalytics"
 import "./globals.css"
 
 const inter = Inter({
@@ -86,6 +89,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.emailjs.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <meta name="google-adsense-account" content="ca-pub-2572298012241654" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -112,14 +117,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-white dark:bg-[#0F172A] text-gray-600 dark:text-gray-300 transition-colors duration-300">
-        <ThemeProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
-          <FloatingChat />
-        </ThemeProvider>
-        <Analytics />
+        <ConsentProvider>
+          <ThemeProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <FloatingWhatsApp />
+            <FloatingChat />
+            <CookieConsentBanner />
+          </ThemeProvider>
+          <ConditionalAnalytics />
+          <AdSenseScript />
+        </ConsentProvider>
       </body>
     </html>
   )

@@ -2,16 +2,17 @@ import type { NextConfig } from "next";
 
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://i.pravatar.cc;
+  img-src 'self' blob: data: https://i.pravatar.cc https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-  connect-src 'self' https://api.emailjs.com;
+  connect-src 'self' https://api.emailjs.com https://pagead2.googlesyndication.com;
+  frame-src https://googleads.g.doubleclick.net;
 `;
 
 const nextConfig: NextConfig = {
