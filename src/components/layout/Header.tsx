@@ -36,10 +36,19 @@ export function Header() {
       <div className="container-main">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300 group-hover:scale-105">
-              <Image src="/oraculologo.png" alt={SITE.name} width={56} height={56} className="w-full h-full object-cover" />
+            <div className="w-12 h-12 sm:w-[52px] sm:h-[52px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-0.5">
+              <Image
+                src="/oraculologo.png"
+                alt={SITE.name}
+                width={52}
+                height={52}
+                className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(123,77,255,0.25)] group-hover:drop-shadow-[0_0_20px_rgba(123,77,255,0.5)] transition-all duration-500"
+                priority
+              />
             </div>
-            <span className="text-xl sm:text-2xl font-bold font-heading gradient-text drop-shadow-[0_2px_8px_rgba(123,77,255,0.25)] group-hover:drop-shadow-[0_2px_12px_rgba(123,77,255,0.45)] transition-all duration-300">{SITE.name}</span>
+            <span className="text-xl sm:text-2xl font-bold font-heading gradient-text-hero animate-gradient drop-shadow-[0_2px_8px_rgba(123,77,255,0.3)] group-hover:drop-shadow-[0_2px_14px_rgba(123,77,255,0.5)] transition-all duration-500">
+              {SITE.name}
+            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
