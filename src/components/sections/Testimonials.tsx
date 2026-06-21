@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight, Quote, Star, TrendingUp, Clock, Zap } from "lucide-react"
 import { TESTIMONIALS } from "@/lib/constants"
 import { cn } from "@/lib/utils"
@@ -80,8 +81,8 @@ export function Testimonials() {
                 className="w-full"
               >
                 <div className="text-center px-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7B4DFF] to-[#6D28D9] flex items-center justify-center mx-auto mb-6 text-xl font-bold text-white shadow-lg shadow-purple-500/20">
-                    {item.avatar}
+                  <div className="w-16 h-16 rounded-full mx-auto mb-6 overflow-hidden shadow-lg shadow-purple-500/20">
+                    <Image src={item.avatarUrl} alt={item.name} width={64} height={64} className="w-full h-full object-cover" />
                   </div>
                   <Quote className="w-10 h-10 text-[#7B4DFF]/15 mx-auto mb-4" />
                   <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-200 leading-relaxed mb-6 italic font-[var(--font-heading)]">

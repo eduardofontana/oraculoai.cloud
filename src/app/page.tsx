@@ -1,11 +1,11 @@
 import { Hero } from "@/components/sections/Hero"
-import { PoweredBy } from "@/components/sections/PoweredBy"
 import dynamic from "next/dynamic"
 
 const Problems = dynamic(() => import("@/components/sections/Problems").then((m) => m.Problems))
 const Services = dynamic(() => import("@/components/sections/Services").then((m) => m.Services))
 const HowItWorks = dynamic(() => import("@/components/sections/HowItWorks").then((m) => m.HowItWorks))
 const Results = dynamic(() => import("@/components/sections/Results").then((m) => m.Results))
+const Cases = dynamic(() => import("@/components/sections/Cases").then((m) => m.Cases))
 const WhyUs = dynamic(() => import("@/components/sections/WhyUs").then((m) => m.WhyUs))
 const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then((m) => m.Testimonials))
 const DiagnosisForm = dynamic(() => import("@/components/forms/DiagnosisForm").then((m) => m.DiagnosisForm))
@@ -16,11 +16,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PoweredBy />
       <Problems />
       <Services />
       <HowItWorks />
       <Results />
+      <Cases />
       <WhyUs />
       <Testimonials />
       <DiagnosisForm />

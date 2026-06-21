@@ -53,30 +53,16 @@ export function DiagnosisForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      const templateParams = {
-        to_name: "Equipe OráculoAI",
-        from_name: data.nome,
-        from_email: data.email,
-        telefone: data.telefone,
-        empresa: data.empresa,
-        segmento: data.segmento,
-        funcionarios: data.funcionarios,
-        desafio: data.desafio,
-        message: `Nova solicitação de diagnóstico de ${data.nome} (${data.email}) - ${data.empresa}`,
-      }
-
-      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      const response = await fetch("/api/diagnosis", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-          template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-          user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "",
-          template_params: templateParams,
-        }),
+        body: JSON.stringify(data),
       })
 
-      if (!response.ok) throw new Error("Erro ao enviar formulário")
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || "Erro ao enviar formulário")
+      }
 
       setIsSubmitted(true)
       reset()

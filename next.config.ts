@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
     localPatterns: [
       { pathname: "/**" },
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+      },
+    ],
   },
   async headers() {
     return [
@@ -50,7 +56,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+            value: "camera=(), microphone=(), geolocation=()",
           },
           {
             key: "Cross-Origin-Opener-Policy",

@@ -87,10 +87,15 @@ export function Footer() {
               </li>
               <li className="text-sm text-gray-400">São Paulo, SP — Brasil</li>
             </ul>
-            <div className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10">
+            <a
+              href="https://www.hostinger.com/br/cart?product=vps%3Avps_kvm_2&period=12&referral_type=cart_link&REFERRALCODE=LJOFONTANIXB&referral_id=019ede22-fbe3-735b-999b-d80410738aed"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 p-4 rounded-xl bg-white/5 border border-white/10 block hover:bg-white/10 transition-colors"
+            >
               <p className="text-xs font-medium text-gray-300 uppercase tracking-wider mb-1">Parceiro Oficial</p>
               <p className="text-sm font-semibold">Hostinger</p>
-            </div>
+            </a>
           </div>
         </div>
       </div>

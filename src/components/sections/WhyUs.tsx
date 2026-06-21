@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Target, Headphones, PiggyBank, Rocket, Award, Shield, Sparkles } from "lucide-react"
-import { WHY_US, SITE } from "@/lib/constants"
+import { WHY_US } from "@/lib/constants"
 import { Card } from "@/components/ui/Card"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -69,7 +69,7 @@ export function WhyUs() {
             Todos os planos incluem hospedagem, e-mail profissional e infraestrutura Hostinger — a melhor plataforma de hospedagem do mundo.
           </p>
           <a
-            href={SITE.url}
+            href="https://www.hostinger.com/br/cart?product=vps%3Avps_kvm_2&period=12&referral_type=cart_link&REFERRALCODE=LJOFONTANIXB&referral_id=019ede22-fbe3-735b-999b-d80410738aed"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#7B4DFF] hover:text-[#6D28D9] transition-colors group"

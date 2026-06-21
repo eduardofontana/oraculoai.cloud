@@ -4,7 +4,7 @@ export const SITE = {
   description: "Agência de IA para pequenos negócios e empreendedores brasileiros. Automação, chatbots, consultoria e ecossistema digital completo.",
   url: "https://oraculoai.cloud",
   whatsapp: "5511999999999",
-  email: "contato@oraculoai.cloud",
+  email: "oraculoai@proton.me",
   social: {
     instagram: "@oraculoai",
     linkedin: "oraculoai",
@@ -258,6 +258,62 @@ export const RESULTS = {
   ],
 } as const
 
+export const CASES = {
+  title: "Cases de sucesso",
+  subtitle:
+    "Conheça histórias reais de pequenos negócios que transformaram seus resultados com a OráculoAI.",
+  items: [
+    {
+      id: "clinica-odonto",
+      icon: "Stethoscope",
+      client: "Clínica OdontoCare",
+      segment: "Saúde",
+      challenge: "A clínica perdia 35% dos leads porque só atendia WhatsApp em horário comercial. Pacientes reclamavam de demora no agendamento.",
+      solution: "Implementamos chatbot com IA para WhatsApp 24h, integrado ao sistema de agendamento. O bot qualifica leads, responde dúvidas comuns e agenda consultas automaticamente.",
+      results: [
+        "40% mais pacientes agendados",
+        "Zero perda de leads fora do horário",
+        "Redução de 60% em custos com recepção",
+        "Agendamento 24h sem intervenção humana",
+      ],
+      testimonial: "O chatbot da OráculoAI mudou completamente nosso atendimento. Agendamentos automáticos 24h — melhor investimento que fizemos.",
+      author: "Dr. Carlos Mendes",
+    },
+    {
+      id: "moda-feminina",
+      icon: "ShoppingBag",
+      client: "ModaFem Store",
+      segment: "E-commerce",
+      challenge: "Loja de moda feminina com alto volume de consultas no Instagram e WhatsApp. Equipe pequena não dava conta, perdendo vendas todo fim de semana.",
+      solution: "Criamos um ecossistema digital: chatbot multicanal (WhatsApp + Instagram + site), integração com catálogo de produtos e automação de follow-up para carrinhos abandonados.",
+      results: [
+        "60% de aumento no faturamento em 2 meses",
+        "80% dos leads respondidos em segundos",
+        "Recuperação de 25% dos carrinhos abandonados",
+        "Equipe reduzida em 50% no atendimento",
+      ],
+      testimonial: "Recuperei leads que perdia todo fim de semana. A automação mudou meu negócio.",
+      author: "Ana Beatriz",
+    },
+    {
+      id: "escritorio-juridico",
+      icon: "Scale",
+      client: "Costa & Oliveira Advogados",
+      segment: "Jurídico",
+      challenge: "Escritório de advocacia perdia tempo com triagem manual de casos. Clientes reclamavam da demora no primeiro contato e na definição de honorários.",
+      solution: "Implementamos agente de IA especializado em triagem jurídica, que coleta informações do caso, classifica a área de atuação e agenda consulta com o advogado correto.",
+      results: [
+        "Triagem de casos 10x mais rápida",
+        "Redução de 70% no tempo ocioso da equipe",
+        "Satisfação do cliente subiu de 3.2 para 4.8",
+        "50% mais casos captados no primeiro contato",
+      ],
+      testimonial: "A IA nos ajudou a automatizar a triagem de casos. Reduzimos custos e melhoramos o atendimento.",
+      author: "Rafael Oliveira",
+    },
+  ],
+} as const
+
 export const WHY_US = {
   title: "Por que a OráculoAI?",
   subtitle:
@@ -311,24 +367,28 @@ export const TESTIMONIALS = {
       name: "Carlos Mendes",
       role: "Proprietário — Clínica Odontológica",
       avatar: "CM",
+      avatarUrl: "https://i.pravatar.cc/150?u=carlos-mendes",
       text: "O chatbot da OráculoAI mudou completamente nosso atendimento. Agendamentos automáticos 24h e 40% mais pacientes. Melhor investimento que fizemos.",
     },
     {
       name: "Ana Beatriz",
       role: "CEO — Loja de Moda Feminina",
       avatar: "AB",
+      avatarUrl: "https://i.pravatar.cc/150?u=ana-beatriz",
       text: "Perdia vendas todo fim de semana por não ter atendimento. Com a automação, recuperei leads e aumentei o faturamento em 60% em 2 meses.",
     },
     {
       name: "Rafael Oliveira",
       role: "Sócio — Escritório de Advocacia",
       avatar: "RO",
+      avatarUrl: "https://i.pravatar.cc/150?u=rafael-oliveira",
       text: "A consultoria em IA nos ajudou a automatizar a triagem de casos. Reduzimos custos operacionais e melhoramos o atendimento aos clientes.",
     },
     {
       name: "Juliana Costa",
       role: "Diretora — Academia de CrossFit",
       avatar: "JC",
+      avatarUrl: "https://i.pravatar.cc/150?u=juliana-costa",
       text: "O ecossistema completo + site + chatbot foi a virada de chave. Alunos novos aumentaram 80% depois que implementamos tudo.",
     },
   ],
@@ -418,9 +478,9 @@ export const ABOUT = {
     { title: "Brasil em primeiro lugar", description: "Soluções desenhadas para a realidade do empreendedor brasileiro." },
   ],
   team: [
-    { name: "Lucas Andrade", role: "CEO & Fundador", avatar: "LA", description: "Expert em automação de IA, 10+ anos transformando negócios com tecnologia." },
-    { name: "Marina Torres", role: "CTO & Head de IA", avatar: "MT", description: "Cientista de dados e engenheira de IA, referência em chatbots inteligentes." },
-    { name: "Pedro Costa", role: "Head de Operações", avatar: "PC", description: "Especialista em processos e operações, garante entregas dentro do prazo." },
-    { name: "Camila Rocha", role: "Customer Success", avatar: "CR", description: "Cuida de cada cliente como se fosse único. Suporte humano de verdade." },
+    { name: "Lucas Andrade", role: "CEO & Fundador", avatar: "LA", imageUrl: "https://i.pravatar.cc/150?u=lucas-andrade", description: "Expert em automação de IA, 10+ anos transformando negócios com tecnologia." },
+    { name: "Marina Torres", role: "CTO & Head de IA", avatar: "MT", imageUrl: "https://i.pravatar.cc/150?u=marina-torres", description: "Cientista de dados e engenheira de IA, referência em chatbots inteligentes." },
+    { name: "Pedro Costa", role: "Head de Operações", avatar: "PC", imageUrl: "https://i.pravatar.cc/150?u=pedro-costa", description: "Especialista em processos e operações, garante entregas dentro do prazo." },
+    { name: "Camila Rocha", role: "Customer Success", avatar: "CR", imageUrl: "https://i.pravatar.cc/150?u=camila-rocha", description: "Cuida de cada cliente como se fosse único. Suporte humano de verdade." },
   ],
 } as const

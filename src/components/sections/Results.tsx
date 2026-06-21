@@ -83,7 +83,7 @@ export function Results() {
   }, [])
 
   return (
-    <section id="cases" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
+    <section id="resultados" className="section-padding bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-100/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl" />

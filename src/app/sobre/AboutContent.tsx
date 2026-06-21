@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Sparkles, Target, Eye, Heart, Shield } from "lucide-react"
 import { ABOUT } from "@/lib/constants"
 import { Card } from "@/components/ui/Card"
@@ -112,8 +113,8 @@ export function AboutContent() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="text-center h-full">
-                  <div className="w-20 h-20 rounded-full gradient-accent flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white shadow-lg shadow-purple-500/20">
-                    {member.avatar}
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-lg shadow-purple-500/20">
+                    <Image src={member.imageUrl} alt={member.name} width={80} height={80} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="font-bold text-[#0A2540] dark:text-white">{member.name}</h3>
                   <p className="text-sm text-[#7B4DFF] dark:text-[#9B7DFF] font-medium mb-2">{member.role}</p>
