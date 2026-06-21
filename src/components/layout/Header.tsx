@@ -35,11 +35,11 @@ export function Header() {
     >
       <div className="container-main">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
-              <Image src="/oraculologo.png" alt={SITE.name} width={40} height={40} className="w-full h-full object-cover" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300 group-hover:scale-105">
+              <Image src="/oraculologo.png" alt={SITE.name} width={56} height={56} className="w-full h-full object-cover" />
             </div>
-            <span className="text-xl font-bold text-[#0A2540] dark:text-white drop-shadow-[0_1px_6px_rgba(123,77,255,0.3)] dark:drop-shadow-[0_1px_6px_rgba(155,125,255,0.4)]">{SITE.name}</span>
+            <span className="text-xl sm:text-2xl font-bold font-heading gradient-text drop-shadow-[0_2px_8px_rgba(123,77,255,0.25)] group-hover:drop-shadow-[0_2px_12px_rgba(123,77,255,0.45)] transition-all duration-300">{SITE.name}</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
