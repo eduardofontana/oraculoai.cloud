@@ -1,12 +1,29 @@
 import { NextRequest, NextResponse } from "next/server"
 
+const ALLOWED_ORIGINS = ["https://oraculoai.cloud", "http://localhost:3000"]
+
 export async function POST(request: NextRequest) {
   try {
+    const origin = request.headers.get("origin")
+    if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+      return NextResponse.json({ error: "Origem não autorizada" }, { status: 403 })
+    }
+
     const body = await request.json()
     const { nome, email, telefone, empresa, segmento, funcionarios, desafio } = body
 
     if (!nome || !email || !telefone || !empresa || !segmento || !funcionarios || !desafio) {
       return NextResponse.json({ error: "Todos os campos são obrigatórios" }, { status: 400 })
+    }
+
+    if (typeof nome !== "string" || nome.length > 100) {
+      return NextResponse.json({ error: "Nome inválido" }, { status: 400 })
+    }
+    if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200) {
+      return NextResponse.json({ error: "Email inválido" }, { status: 400 })
+    }
+    if (typeof desafio !== "string" || desafio.length > 5000) {
+      return NextResponse.json({ error: "Desafio muito longo" }, { status: 400 })
     }
 
     const templateParams = {

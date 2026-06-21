@@ -35,7 +35,7 @@ function ServiceCard({ icon, title, description, gradient, index }: ServiceCardP
           {Icon && <Icon className="w-7 h-7 text-white" />}
         </div>
         <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{title}</h3>
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{description}</p>
+        <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">{description}</p>
       </Card>
     </motion.div>
   )

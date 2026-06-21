@@ -122,7 +122,7 @@ export function Results() {
                 prefix=""
                 suffix=""
               />
-              <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-3 leading-relaxed">{metric.description}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-300 text-center mt-3 leading-relaxed">{metric.description}</p>
             </motion.div>
           ))}
         </div>

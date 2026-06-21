@@ -35,7 +35,7 @@ export function FinalCTA() {
             {CTA_FINAL.title}
           </h2>
 
-          <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mb-8 max-w-xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-500 dark:text-gray-300 mb-8 max-w-xl mx-auto">
             {CTA_FINAL.subtitle}
           </p>
 

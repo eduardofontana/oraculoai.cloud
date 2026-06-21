@@ -109,7 +109,7 @@ function WhatsAppMockup() {
           <TrendingUp className="w-4 h-4 text-white" />
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Atendimento 24h</p>
+          <p className="text-[10px] text-gray-500 dark:text-gray-300">Atendimento 24h</p>
           <p className="text-xs font-bold text-[#0A2540] dark:text-white">+40% conversão</p>
         </div>
       </div>
@@ -120,7 +120,7 @@ function WhatsAppMockup() {
           <Star className="w-4 h-4 text-white fill-white" />
         </div>
         <div>
-          <p className="text-[10px] text-gray-500">Parceiro Oficial</p>
+          <p className="text-[10px] text-gray-500 dark:text-gray-300">Parceiro Oficial</p>
           <p className="text-xs font-bold text-[#0A2540] dark:text-white">Hostinger</p>
         </div>
       </div>
@@ -159,7 +159,7 @@ export function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-gray-500 dark:text-gray-400 mt-6 leading-relaxed max-w-xl"
+              className="text-lg sm:text-xl text-gray-500 dark:text-gray-300 mt-6 leading-relaxed max-w-xl"
             >
               {HERO.subheadline}
             </motion.p>
@@ -184,7 +184,7 @@ export function Hero() {
               </button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-6 mt-8 text-sm text-gray-400 dark:text-gray-500">
+            <motion.div variants={itemVariants} className="flex items-center gap-4 sm:gap-6 mt-8 text-sm text-gray-400 dark:text-gray-300">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div

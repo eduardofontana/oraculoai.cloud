@@ -48,7 +48,7 @@ export function WhyUs() {
                     {Icon && <Icon className="w-6 h-6 text-[#7B4DFF] dark:text-[#9B7DFF]" />}
                   </div>
                   <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{benefit.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+                  <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">{benefit.description}</p>
                 </Card>
               </motion.div>
             )
@@ -65,7 +65,7 @@ export function WhyUs() {
             <Award className="w-8 h-8 text-white" />
           </div>
           <h3 className="text-xl font-bold text-[#0A2540] dark:text-white mb-2">Parceiro Oficial Hostinger</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <p className="text-sm text-gray-500 dark:text-gray-300 mb-6">
             Todos os planos incluem hospedagem, e-mail profissional e infraestrutura Hostinger — a melhor plataforma de hospedagem do mundo.
           </p>
           <a

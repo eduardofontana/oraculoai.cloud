@@ -64,7 +64,7 @@ export function Problems() {
                     {Icon && <Icon className="w-6 h-6 text-red-500 dark:text-red-400" />}
                   </div>
                    <h3 className="text-lg font-bold text-[#0A2540] dark:text-white mb-2">{problem.title}</h3>
-                   <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{problem.description}</p>
+                   <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">{problem.description}</p>
                 </Card>
               </motion.div>
             )

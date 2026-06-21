@@ -94,7 +94,7 @@ export function Testimonials() {
                     ))}
                   </div>
                   <p className="font-bold text-lg text-[#0A2540] dark:text-white">{item.name}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{item.role}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">{item.role}</p>
                 </div>
               </motion.div>
             </AnimatePresence>

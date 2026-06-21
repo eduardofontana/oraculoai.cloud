@@ -47,7 +47,7 @@ export function Cases() {
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-[#0A2540] dark:text-white">{caseItem.client}</h3>
-                        <span className="text-xs text-gray-400 dark:text-gray-500">{caseItem.segment}</span>
+                        <span className="text-xs text-gray-400 dark:text-gray-300">{caseItem.segment}</span>
                       </div>
                     </div>
 
@@ -75,7 +75,7 @@ export function Cases() {
                       </ul>
 
                       <blockquote className="border-l-2 border-[#7B4DFF] pl-4 py-1">
-                        <p className="text-xs text-gray-500 dark:text-gray-400 italic leading-relaxed mb-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-300 italic leading-relaxed mb-2">
                           &ldquo;{caseItem.testimonial}&rdquo;
                         </p>
                         <cite className="text-xs font-semibold text-[#0A2540] dark:text-white not-italic">

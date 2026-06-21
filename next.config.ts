@@ -6,7 +6,7 @@ const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""};
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https:;
+  img-src 'self' blob: data: https://i.pravatar.cc;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
@@ -18,7 +18,6 @@ const cspHeader = `
 
 const nextConfig: NextConfig = {
   images: {
-    qualities: [75, 90],
     localPatterns: [
       { pathname: "/**" },
     ],

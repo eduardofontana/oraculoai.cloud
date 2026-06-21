@@ -62,7 +62,7 @@ export function FloatingChat() {
                   >
                     <option.icon className="w-4 h-4 text-[#7B4DFF]" />
                     <span className="flex-1">{option.label}</span>
-                    <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-[#7B4DFF] group-hover:translate-x-0.5 transition-all" />
+                    <ChevronRight className="w-4 h-4 text-gray-400 dark:text-gray-300 group-hover:text-[#7B4DFF] group-hover:translate-x-0.5 transition-all" />
                   </a>
                 ))}
               </div>

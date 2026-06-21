@@ -45,7 +45,7 @@ function AccordionItem({ q, a, isOpen, onClick }: { q: string; a: string; isOpen
             className="overflow-hidden"
           >
             <div className="px-5 sm:px-6 pb-5 sm:pb-6 bg-white dark:bg-gray-800">
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed">{a}</p>
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-300 leading-relaxed">{a}</p>
             </div>
           </motion.div>
         )}

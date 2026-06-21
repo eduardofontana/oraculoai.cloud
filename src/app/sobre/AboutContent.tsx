@@ -30,7 +30,7 @@ export function AboutContent() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A2540] dark:text-white mb-6">
               {ABOUT.title}
             </h1>
-            <p className="text-xl text-gray-500 dark:text-gray-400 leading-relaxed">{ABOUT.subtitle}</p>
+            <p className="text-xl text-gray-500 dark:text-gray-300 leading-relaxed">{ABOUT.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -45,7 +45,7 @@ export function AboutContent() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2540] dark:text-white mb-4">Nossa Missão</h2>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-lg">{ABOUT.mission}</p>
+              <p className="text-gray-500 dark:text-gray-300 leading-relaxed text-lg">{ABOUT.mission}</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -54,7 +54,7 @@ export function AboutContent() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2540] dark:text-white mb-4">Nossa Visão</h2>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-lg">{ABOUT.vision}</p>
+              <p className="text-gray-500 dark:text-gray-300 leading-relaxed text-lg">{ABOUT.vision}</p>
             </motion.div>
           </div>
 
@@ -66,7 +66,7 @@ export function AboutContent() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2540] dark:text-white mb-4">Nossos Valores</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Os princípios que guiam cada decisão na OráculoAI.</p>
+            <p className="text-gray-500 dark:text-gray-300 max-w-xl mx-auto">Os princípios que guiam cada decisão na OráculoAI.</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
@@ -85,7 +85,7 @@ export function AboutContent() {
                       {Icon && <Icon className="w-6 h-6 text-[#7B4DFF] dark:text-[#9B7DFF]" />}
                     </div>
                     <h3 className="font-bold text-[#0A2540] dark:text-white mb-2">{value.title}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{value.description}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-300">{value.description}</p>
                   </Card>
                 </motion.div>
               )
@@ -100,7 +100,7 @@ export function AboutContent() {
             className="text-center mb-12"
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0A2540] dark:text-white mb-4">Nosso Time</h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Conheça as pessoas por trás da OráculoAI.</p>
+            <p className="text-gray-500 dark:text-gray-300 max-w-xl mx-auto">Conheça as pessoas por trás da OráculoAI.</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -118,7 +118,7 @@ export function AboutContent() {
                   </div>
                   <h3 className="font-bold text-[#0A2540] dark:text-white">{member.name}</h3>
                   <p className="text-sm text-[#7B4DFF] dark:text-[#9B7DFF] font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{member.description}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-300">{member.description}</p>
                 </Card>
               </motion.div>
             ))}

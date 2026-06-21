@@ -18,7 +18,7 @@ export function Footer() {
               </div>
               <span className="text-lg font-bold">{SITE.name}</span>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-300 leading-relaxed">
               IA que funciona de verdade para o seu pequeno negócio crescer. Automação,
               chatbots, consultoria e ecossistema digital completo.
             </p>
@@ -51,7 +51,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -63,12 +63,12 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Serviços</h4>
             <ul className="space-y-3">
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Automação e Chatbots</Link></li>
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Agentes de IA</Link></li>
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Consultoria em IA</Link></li>
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Segurança Digital</Link></li>
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Site Profissional</Link></li>
-              <li><Link href="/#servicos" className="text-sm text-gray-400 hover:text-white transition-colors">Ecossistema Completo</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Automação e Chatbots</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Agentes de IA</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Consultoria em IA</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Segurança Digital</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Site Profissional</Link></li>
+              <li><Link href="/#servicos" className="text-sm text-gray-300 hover:text-white transition-colors">Ecossistema Completo</Link></li>
             </ul>
           </div>
 
@@ -76,16 +76,16 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-3">
               <li>
-                <a href={`mailto:${SITE.email}`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a href={`mailto:${SITE.email}`} className="text-sm text-gray-300 hover:text-white transition-colors">
                   {SITE.email}
                 </a>
               </li>
               <li>
-                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-300 hover:text-white transition-colors">
                   WhatsApp: (11) 99999-9999
                 </a>
               </li>
-              <li className="text-sm text-gray-400">São Paulo, SP — Brasil</li>
+              <li className="text-sm text-gray-300">São Paulo, SP — Brasil</li>
             </ul>
             <a
               href="https://www.hostinger.com/br/cart?product=vps%3Avps_kvm_2&period=12&referral_type=cart_link&REFERRALCODE=LJOFONTANIXB&referral_id=019ede22-fbe3-735b-999b-d80410738aed"
@@ -102,10 +102,10 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-main py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             © {year} {SITE.name}. Todos os direitos reservados.
           </p>
-          <p className="text-sm text-gray-500 flex items-center gap-1">
+          <p className="text-sm text-gray-400 flex items-center gap-1">
             Feito com <Heart className="w-3.5 h-3.5 text-red-400 fill-red-400" /> para pequenos negócios brasileiros
           </p>
         </div>

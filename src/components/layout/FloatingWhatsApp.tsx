@@ -21,7 +21,7 @@ export function FloatingWhatsApp() {
             <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
               Fale com a gente!
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-gray-500 dark:text-gray-300">
                   Tire dúvidas, solicite orçamento ou agende uma conversa.
             </p>
           </motion.div>

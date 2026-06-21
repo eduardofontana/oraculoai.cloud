@@ -62,7 +62,7 @@ export function ContactContent() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0A2540] dark:text-white mb-6">
               {CONTACT.title}
             </h1>
-            <p className="text-xl text-gray-500 dark:text-gray-400 leading-relaxed">{CONTACT.subtitle}</p>
+            <p className="text-xl text-gray-500 dark:text-gray-300 leading-relaxed">{CONTACT.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -86,7 +86,7 @@ export function ContactContent() {
                         {Icon && <Icon className="w-6 h-6 text-[#7B4DFF] dark:text-[#9B7DFF]" />}
                       </div>
                       <div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-300">{item.label}</p>
                         <p className="font-semibold text-[#0A2540] dark:text-white">{item.value}</p>
                       </div>
                     </div>
@@ -141,7 +141,7 @@ export function ContactContent() {
                     <CheckCircle className="w-8 h-8 text-emerald-600" />
                   </div>
                   <h3 className="text-xl font-bold text-[#0A2540] dark:text-white mb-2">Mensagem enviada! 🎉</h3>
-                  <p className="text-gray-500 dark:text-gray-400 mb-6">
+                  <p className="text-gray-500 dark:text-gray-300 mb-6">
                     Recebemos sua mensagem e responderemos em até 24h.
                   </p>
                   <Button variant="outline" onClick={() => setSubmitted(false)}>
