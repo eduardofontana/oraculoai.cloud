@@ -1,138 +1,89 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { ThemeToggle } from "@/components/ui/ThemeToggle"
-import { NAV_LINKS, SITE } from "@/lib/constants"
+import { ArrowUpRight, Menu, X } from "lucide-react"
+import { Wordmark } from "@/components/brand/Wordmark"
+import { NAVIGATION } from "@/lib/content"
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const reduceMotion = useReducedMotion()
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobileNavRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    const handleScroll = () => setScrolled(window.scrollY > 16)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = isMobileOpen ? "hidden" : ""
+    document.body.style.overflow = open ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
-  }, [isMobileOpen])
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const firstLink = mobileNavRef.current?.querySelector<HTMLAnchorElement>("a")
+    firstLink?.focus()
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return
+      setOpen(false)
+      menuButtonRef.current?.focus()
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [open])
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled
-          ? "glass-card shadow-premium"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container-main">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 sm:w-[52px] sm:h-[52px] transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-0.5">
-              <Image
-                src="/oraculologo.png"
-                alt={SITE.name}
-                width={52}
-                height={52}
-                className="w-full h-full object-contain drop-shadow-[0_0_10px_rgba(123,77,255,0.25)] group-hover:drop-shadow-[0_0_20px_rgba(123,77,255,0.5)] transition-all duration-500"
-                priority
-              />
-            </div>
-            <span className="text-xl sm:text-2xl font-bold font-heading gradient-text-hero animate-gradient drop-shadow-[0_2px_8px_rgba(123,77,255,0.3)] group-hover:drop-shadow-[0_2px_14px_rgba(123,77,255,0.5)] transition-all duration-500">
-              {SITE.name}
-            </span>
-          </Link>
-
-          <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-gray-500 hover:text-[#7B4DFF] dark:text-gray-300 dark:hover:text-[#9B7DFF] transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle />
-            <a
-              href={`https://wa.me/${SITE.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-4 py-2 text-sm bg-transparent border-2 border-[#7B4DFF] text-[#7B4DFF] hover:bg-[#7B4DFF] hover:text-white"
-            >
-              Fale Conosco
-            </a>
-            <Link
-              href="/#diagnostico"
-              className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-4 py-2 text-sm bg-[#7B4DFF] hover:bg-[#6D28D9] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40"
-            >
-              Diagnóstico Grátis
-            </Link>
-          </div>
-
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Menu"
-          >
-            {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+      <div className="container-main site-header__inner">
+        <Wordmark />
+        <nav className="desktop-nav" aria-label="Navegação principal">
+          {NAVIGATION.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+        </nav>
+        <Link href="/#diagnostico" className="header-cta">
+          Vamos conversar <ArrowUpRight aria-hidden="true" />
+        </Link>
+        <button
+          ref={menuButtonRef}
+          type="button"
+          className="menu-toggle"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+        >
+          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+        </button>
       </div>
-
       <AnimatePresence>
-        {isMobileOpen && (
+        {open ? (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden border-t border-gray-100 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl"
+            ref={mobileNavRef}
+            id="mobile-navigation"
+            className="mobile-nav"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
           >
-            <div className="container-main py-6 space-y-4">
-              <nav className="flex flex-col gap-2">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMobileOpen(false)}
-                    className="px-4 py-3 rounded-xl text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-purple-50 dark:hover:bg-purple-900/30 hover:text-[#7B4DFF] dark:hover:text-[#9B7DFF] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="flex flex-col gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
-                <a
-                  href={`https://wa.me/${SITE.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-6 py-3 text-base bg-[#25D366] hover:bg-[#1ebe57] text-white shadow-lg shadow-green-500/25 w-full"
-                >
-                  Fale Conosco
-                </a>
-                <Link
-                  href="/#diagnostico"
-                  onClick={() => setIsMobileOpen(false)}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 px-6 py-3 text-base bg-[#7B4DFF] hover:bg-[#6D28D9] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 w-full"
-                >
-                  Diagnóstico Grátis
-                </Link>
-              </div>
-            </div>
+            <nav aria-label="Navegação móvel">
+              {NAVIGATION.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
+              ))}
+              <Link className="button button--primary" href="/#diagnostico" onClick={() => setOpen(false)}>
+                Iniciar diagnóstico <ArrowUpRight aria-hidden="true" />
+              </Link>
+            </nav>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     </header>
   )
