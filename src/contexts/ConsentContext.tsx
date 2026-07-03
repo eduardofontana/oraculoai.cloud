@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import { getConsent, setConsent, type ConsentPreferences } from "@/lib/consent"
 
 interface ConsentContextType {
@@ -18,13 +18,14 @@ const ConsentContext = createContext<ConsentContextType>({
 })
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
-  const [consent, setConsentState] = useState<ConsentPreferences | null>(() => {
-    if (typeof document === "undefined") return null
-    return getConsent()
-  })
+  const [consent, setConsentState] = useState<ConsentPreferences | null>(null)
+
+  useEffect(() => {
+    void Promise.resolve().then(() => setConsentState(getConsent()))
+  }, [])
 
   const acceptAll = () => {
-    const prefs: ConsentPreferences = { necessary: true, analytics: true, marketing: true }
+    const prefs: ConsentPreferences = { necessary: true, analytics: true, marketing: false }
     setConsent(prefs)
     setConsentState(prefs)
   }

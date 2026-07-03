@@ -1,18 +1,20 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://i.pravatar.cc https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
+  img-src 'self' blob: data:;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-  connect-src 'self' https://api.emailjs.com https://pagead2.googlesyndication.com;
-  frame-src https://googleads.g.doubleclick.net;
+  connect-src 'self' https://api.emailjs.com https://*.vercel-insights.com;
+  frame-src 'none';
 `;
 
 const nextConfig: NextConfig = {
@@ -20,12 +22,7 @@ const nextConfig: NextConfig = {
     localPatterns: [
       { pathname: "/**" },
     ],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-    ],
+    remotePatterns: [],
   },
   async headers() {
     return [
@@ -42,7 +39,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            value: "DENY",
           },
           {
             key: "Strict-Transport-Security",

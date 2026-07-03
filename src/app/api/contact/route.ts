@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
+import { contactSchema, getClientIp, isRateLimited } from "@/lib/forms"
 
-const ALLOWED_ORIGINS = ["https://oraculoai.cloud", "http://localhost:3000"]
+const ALLOWED_ORIGINS = ["https://oraculoai.cloud", "https://www.oraculoai.cloud", "http://localhost:3000"]
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,22 +10,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Origem não autorizada" }, { status: 403 })
     }
 
-    const body = await request.json()
-    const { nome, email, telefone, assunto, mensagem } = body
-
-    if (!nome || !email || !assunto || !mensagem) {
-      return NextResponse.json({ error: "Todos os campos obrigatórios devem ser preenchidos" }, { status: 400 })
+    const parsed = contactSchema.safeParse(await request.json())
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.issues[0]?.message || "Dados inválidos" }, { status: 400 })
+    }
+    if (parsed.data.website) {
+      return NextResponse.json({ success: true })
     }
 
-    if (typeof nome !== "string" || nome.length > 100) {
-      return NextResponse.json({ error: "Nome inválido" }, { status: 400 })
+    const ip = getClientIp(request.headers)
+    if (isRateLimited(`contact:${ip}`)) {
+      return NextResponse.json({ error: "Muitas tentativas. Tente novamente em alguns minutos." }, { status: 429 })
     }
-    if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 200) {
-      return NextResponse.json({ error: "Email inválido" }, { status: 400 })
-    }
-    if (typeof mensagem !== "string" || mensagem.length > 5000) {
-      return NextResponse.json({ error: "Mensagem muito longa" }, { status: 400 })
-    }
+
+    const { nome, email, telefone, assunto, mensagem } = parsed.data
 
     const templateParams = {
       to_name: "Equipe OráculoAI",
