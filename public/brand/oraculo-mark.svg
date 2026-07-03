@@ -1,0 +1,22 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">OráculoAI mark</title>
+  <desc id="desc">Workflow loop with an oracle eye and human approval checkpoints.</desc>
+  <rect x="10" y="10" width="140" height="140" rx="32" fill="#101820"/>
+  <path d="M43 46H111C122.046 46 131 54.9543 131 66V110" stroke="#F7F9F4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M117 98L131 112L145 98" stroke="#F7F9F4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M117 114H49C37.9543 114 29 105.046 29 94V50" stroke="#F7F9F4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M43 62L29 48L15 62" stroke="#F7F9F4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="24" width="44" height="36" rx="11" fill="#11A7B5" stroke="#101820" stroke-width="6"/>
+  <path d="M70 36H90M70 47H90" stroke="#101820" stroke-width="5" stroke-linecap="round"/>
+  <rect x="58" y="100" width="44" height="36" rx="11" fill="#F2BC46" stroke="#101820" stroke-width="6"/>
+  <path d="M70 112H90M70 123H90" stroke="#101820" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="30" cy="80" r="21" fill="#75E0A7" stroke="#101820" stroke-width="6"/>
+  <path d="M20 80L27 87L41 71" stroke="#101820" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="109.899" y="59" width="42" height="42" rx="10" transform="rotate(45 109.899 59)" fill="#C93F32" stroke="#101820" stroke-width="6"/>
+  <circle cx="110" cy="78" r="7" fill="#101820"/>
+  <path d="M97 97C99 88 121 88 123 97" stroke="#101820" stroke-width="6" stroke-linecap="round"/>
+  <path d="M42 80C51 62 109 62 118 80C109 98 51 98 42 80Z" fill="#F7F9F4" stroke="#101820" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="80" cy="80" r="20" fill="#11A7B5" stroke="#101820" stroke-width="7"/>
+  <circle cx="80" cy="80" r="8" fill="#101820"/>
+  <circle cx="88" cy="72" r="4" fill="#F7F9F4"/>
+</svg>

@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-int
 const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-mono" })
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "dark",
+  themeColor: "#101820",
+  colorScheme: "light",
 }
 
 export const metadata: Metadata = {
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     siteName: "OráculoAI",
     title: "OráculoAI - Leia o próximo movimento do seu negócio",
     description: "Processos claros, automação responsável e pessoas no controle.",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "OráculoAI" }],
+    images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "OráculoAI" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "OráculoAI",
     description: "IA aplicada à rotina do pequeno negócio.",
-    images: ["/og-image.svg"],
+    images: ["/brand/og-image.png"],
   },
   robots: { index: true, follow: true },
 }
