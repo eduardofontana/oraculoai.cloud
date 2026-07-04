@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
+import Script from "next/script"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { FloatingChat } from "@/components/layout/FloatingChat"
@@ -41,12 +42,21 @@ export const metadata: Metadata = {
     images: ["/brand/og-image.png"],
   },
   robots: { index: true, follow: true },
+  other: {
+    "google-adsense-account": "ca-pub-2572298012241654",
+  },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${mono.variable}`}>
       <body>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2572298012241654"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <ConsentProvider>
           <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
           <Header />
