@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ArrowRight, Check, LoaderCircle } from "lucide-react"
 import { contactSchema, type ContactFormData, type ContactFormInput } from "@/lib/forms"
 import { Field } from "@/components/forms/Field"
+import { getCsrfToken } from "@/lib/csrf"
 
 const fieldOrder = ["nome", "email", "telefone", "assunto", "mensagem"] as const
 
@@ -26,7 +27,14 @@ export function ContactContent() {
   async function submit(data: ContactFormData) {
     setSubmitError(null)
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-csrf-token": getCsrfToken() || "",
+        },
+        body: JSON.stringify(data),
+      })
       if (!response.ok) {
         const body = await response.json().catch(() => null)
         throw new Error(body?.error || "Falha no envio")

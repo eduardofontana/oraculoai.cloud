@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowRight, Check, LoaderCircle, RotateCcw } from "lucide-react"
 import { diagnosisSchema, type DiagnosisFormData, type DiagnosisFormInput } from "@/lib/forms"
 import { Field } from "@/components/forms/Field"
+import { getCsrfToken } from "@/lib/csrf"
 
 const segmentos = ["Clínica / Saúde", "Advocacia / Jurídico", "Loja / E-commerce", "Restaurante / Alimentação", "Imóveis", "Consultoria / Serviços", "Outro"]
 const equipes = ["Só eu", "2 a 5 pessoas", "6 a 15 pessoas", "16 a 30 pessoas", "Mais de 30 pessoas"]
@@ -29,7 +30,10 @@ export function DiagnosisForm() {
     try {
       const response = await fetch("/api/diagnosis", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-csrf-token": getCsrfToken() || "",
+        },
         body: JSON.stringify(data),
       })
       if (!response.ok) {
