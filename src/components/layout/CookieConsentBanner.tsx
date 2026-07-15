@@ -1,23 +1,20 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import Link from "next/link"
 import { useConsent } from "@/contexts/ConsentContext"
 
 const focusableSelector = "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])"
+const emptySubscribe = () => () => {}
 
 export function CookieConsentBanner() {
   const { consent, acceptAll, declineAll, savePreferences } = useConsent()
   const [customizing, setCustomizing] = useState(false)
   const [analytics, setAnalytics] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false)
   const panelRef = useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
-
-  useEffect(() => {
-    void Promise.resolve().then(() => setMounted(true))
-  }, [])
 
   useEffect(() => {
     if (!mounted || consent !== null) return
@@ -26,7 +23,7 @@ export function CookieConsentBanner() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        declineAll()
+        event.preventDefault()
         return
       }
       if (event.key !== "Tab" || !panel) return
@@ -45,7 +42,7 @@ export function CookieConsentBanner() {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [consent, declineAll, mounted])
+  }, [consent, mounted])
 
   if (!mounted || consent !== null) return null
 

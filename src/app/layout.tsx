@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
-import Script from "next/script"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
-import { FloatingChat } from "@/components/layout/FloatingChat"
 import { ConsentProvider } from "@/contexts/ConsentContext"
-import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner"
-import { ConditionalAnalytics } from "@/components/ads/ConditionalAnalytics"
+import { ClientShell } from "@/components/layout/ClientShell"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" })
@@ -51,20 +48,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR" className={`${inter.variable} ${mono.variable}`}>
       <body>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2572298012241654"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <ConsentProvider>
           <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
           <Header />
           <main id="conteudo">{children}</main>
           <Footer />
-          <FloatingChat />
-          <CookieConsentBanner />
-          <ConditionalAnalytics />
+          <ClientShell />
         </ConsentProvider>
       </body>
     </html>

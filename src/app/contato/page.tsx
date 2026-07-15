@@ -1,5 +1,9 @@
 import type { Metadata } from "next"
-import { ContactContent } from "./ContactContent"
+import dynamic from "next/dynamic"
+
+const ContactContent = dynamic(() =>
+  import("./ContactContent").then((m) => m.ContactContent),
+)
 
 export const metadata: Metadata = {
   title: "Contato",

@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { ArrowRight, Check, LoaderCircle } from "lucide-react"
 import { contactSchema, type ContactFormData, type ContactFormInput } from "@/lib/forms"
+import { Field } from "@/components/forms/Field"
 
 const fieldOrder = ["nome", "email", "telefone", "assunto", "mensagem"] as const
 
@@ -17,6 +18,7 @@ export function ContactContent() {
   })
 
   useEffect(() => {
+    if (submitCount === 0) return
     const firstInvalid = fieldOrder.find((field) => errors[field])
     if (firstInvalid) setFocus(firstInvalid)
   }, [errors, setFocus, submitCount])
@@ -70,15 +72,5 @@ export function ContactContent() {
         )}
       </div></section>
     </>
-  )
-}
-
-function Field({ label, error, htmlFor, children, optional = false }: { label: string; error?: string; htmlFor: string; children: React.ReactNode; optional?: boolean }) {
-  return (
-    <div className="field">
-      <label htmlFor={htmlFor}>{label}{optional ? null : <span aria-hidden="true"> *</span>}</label>
-      {children}
-      {error ? <p id={`${htmlFor}-error`} className="field-error" role="alert">{error}</p> : null}
-    </div>
   )
 }

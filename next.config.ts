@@ -4,17 +4,16 @@ const isDev = process.env.NODE_ENV !== "production";
 
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
+  script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval'" : ""} https://va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com https://*.googleusercontent.com https://*.gstatic.com;
+  img-src 'self' blob: data:;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
   upgrade-insecure-requests;
-  connect-src 'self' https://api.emailjs.com https://*.vercel-insights.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net;
-  frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://pagead2.googlesyndication.com;
+  connect-src 'self' https://api.emailjs.com https://*.vercel-insights.com;
 `;
 
 const nextConfig: NextConfig = {
