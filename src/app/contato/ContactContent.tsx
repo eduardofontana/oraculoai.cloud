@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Link from "next/link"
 import { ArrowRight, Check, LoaderCircle } from "lucide-react"
 import { contactSchema, type ContactFormData, type ContactFormInput } from "@/lib/forms"
+import { Field } from "@/components/forms/Field"
+import { getCsrfToken } from "@/lib/csrf"
 
 const fieldOrder = ["nome", "email", "telefone", "assunto", "mensagem"] as const
 
@@ -17,6 +19,7 @@ export function ContactContent() {
   })
 
   useEffect(() => {
+    if (submitCount === 0) return
     const firstInvalid = fieldOrder.find((field) => errors[field])
     if (firstInvalid) setFocus(firstInvalid)
   }, [errors, setFocus, submitCount])
@@ -24,7 +27,14 @@ export function ContactContent() {
   async function submit(data: ContactFormData) {
     setSubmitError(null)
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-csrf-token": getCsrfToken() || "",
+        },
+        body: JSON.stringify(data),
+      })
       if (!response.ok) {
         const body = await response.json().catch(() => null)
         throw new Error(body?.error || "Falha no envio")
@@ -70,15 +80,5 @@ export function ContactContent() {
         )}
       </div></section>
     </>
-  )
-}
-
-function Field({ label, error, htmlFor, children, optional = false }: { label: string; error?: string; htmlFor: string; children: React.ReactNode; optional?: boolean }) {
-  return (
-    <div className="field">
-      <label htmlFor={htmlFor}>{label}{optional ? null : <span aria-hidden="true"> *</span>}</label>
-      {children}
-      {error ? <p id={`${htmlFor}-error`} className="field-error" role="alert">{error}</p> : null}
-    </div>
   )
 }

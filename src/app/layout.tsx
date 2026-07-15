@@ -2,10 +2,8 @@ import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
-import { FloatingChat } from "@/components/layout/FloatingChat"
 import { ConsentProvider } from "@/contexts/ConsentContext"
-import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner"
-import { ConditionalAnalytics } from "@/components/ads/ConditionalAnalytics"
+import { ClientShell } from "@/components/layout/ClientShell"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" })
@@ -41,6 +39,9 @@ export const metadata: Metadata = {
     images: ["/brand/og-image.png"],
   },
   robots: { index: true, follow: true },
+  other: {
+    "google-adsense-account": "ca-pub-2572298012241654",
+  },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -52,9 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Header />
           <main id="conteudo">{children}</main>
           <Footer />
-          <FloatingChat />
-          <CookieConsentBanner />
-          <ConditionalAnalytics />
+          <ClientShell />
         </ConsentProvider>
       </body>
     </html>

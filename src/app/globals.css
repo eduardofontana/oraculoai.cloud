@@ -147,6 +147,7 @@ img, svg { display: block; }
 
 /* Product demos */
 .routines-section, .plans-section, .capabilities-section, .diagnosis-section { background: var(--paper-2); border-block: 1px solid var(--line); }
+.process-section, .integrations-section, .expectations-section, .faq-section, .diagnosis-section { content-visibility: auto; contain-intrinsic-size: auto 800px; }
 .routines-grid { display: grid; gap: 20px; }
 .routine-card { display: grid; grid-template-columns: .78fr 1fr; min-height: 390px; border: 2px solid var(--ink); border-radius: 28px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
 .routine-card:nth-child(even) { grid-template-columns: 1fr .78fr; }

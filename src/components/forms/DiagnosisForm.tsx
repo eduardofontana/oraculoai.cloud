@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ArrowRight, Check, LoaderCircle, RotateCcw } from "lucide-react"
 import { diagnosisSchema, type DiagnosisFormData, type DiagnosisFormInput } from "@/lib/forms"
+import { Field } from "@/components/forms/Field"
+import { getCsrfToken } from "@/lib/csrf"
 
 const segmentos = ["Clínica / Saúde", "Advocacia / Jurídico", "Loja / E-commerce", "Restaurante / Alimentação", "Imóveis", "Consultoria / Serviços", "Outro"]
 const equipes = ["Só eu", "2 a 5 pessoas", "6 a 15 pessoas", "16 a 30 pessoas", "Mais de 30 pessoas"]
@@ -18,6 +20,7 @@ export function DiagnosisForm() {
   })
 
   useEffect(() => {
+    if (submitCount === 0) return
     const firstInvalid = fieldOrder.find((field) => errors[field])
     if (firstInvalid) setFocus(firstInvalid)
   }, [errors, setFocus, submitCount])
@@ -27,7 +30,10 @@ export function DiagnosisForm() {
     try {
       const response = await fetch("/api/diagnosis", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-csrf-token": getCsrfToken() || "",
+        },
         body: JSON.stringify(data),
       })
       if (!response.ok) {
@@ -116,15 +122,5 @@ export function DiagnosisForm() {
         )}
       </div>
     </section>
-  )
-}
-
-function Field({ label, error, htmlFor, children }: { label: string; error?: string; htmlFor: string; children: React.ReactNode }) {
-  return (
-    <div className="field">
-      <label htmlFor={htmlFor}>{label} <span aria-hidden="true">*</span></label>
-      {children}
-      {error ? <p id={`${htmlFor}-error`} className="field-error" role="alert">{error}</p> : null}
-    </div>
   )
 }

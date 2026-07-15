@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react"
 import { getConsent, setConsent, type ConsentPreferences } from "@/lib/consent"
 
 interface ConsentContextType {
@@ -18,31 +18,31 @@ const ConsentContext = createContext<ConsentContextType>({
 })
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
-  const [consent, setConsentState] = useState<ConsentPreferences | null>(null)
+  const [consent, setConsentState] = useState<ConsentPreferences | null>(() => {
+    return getConsent()
+  })
 
-  useEffect(() => {
-    void Promise.resolve().then(() => setConsentState(getConsent()))
-  }, [])
-
-  const acceptAll = () => {
+  const acceptAll = useCallback(() => {
     const prefs: ConsentPreferences = { necessary: true, analytics: true, marketing: false }
     setConsent(prefs)
     setConsentState(prefs)
-  }
+  }, [])
 
-  const declineAll = () => {
+  const declineAll = useCallback(() => {
     const prefs: ConsentPreferences = { necessary: true, analytics: false, marketing: false }
     setConsent(prefs)
     setConsentState(prefs)
-  }
+  }, [])
 
-  const savePreferences = (prefs: ConsentPreferences) => {
+  const savePreferences = useCallback((prefs: ConsentPreferences) => {
     setConsent(prefs)
     setConsentState(prefs)
-  }
+  }, [])
+
+  const value = useMemo(() => ({ consent, acceptAll, declineAll, savePreferences }), [consent, acceptAll, declineAll, savePreferences])
 
   return (
-    <ConsentContext.Provider value={{ consent, acceptAll, declineAll, savePreferences }}>
+    <ConsentContext.Provider value={value}>
       {children}
     </ConsentContext.Provider>
   )

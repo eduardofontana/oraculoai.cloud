@@ -43,6 +43,17 @@ export function getClientIp(headers: Headers) {
 
 const buckets = new Map<string, { count: number; resetAt: number }>()
 
+const CLEANUP_INTERVAL_MS = 60_000
+
+if (typeof setInterval !== "undefined") {
+  setInterval(() => {
+    const now = Date.now()
+    for (const [key, bucket] of buckets) {
+      if (bucket.resetAt < now) buckets.delete(key)
+    }
+  }, CLEANUP_INTERVAL_MS)
+}
+
 export function isRateLimited(key: string, limit = 5, windowMs = 10 * 60 * 1000) {
   const now = Date.now()
   const bucket = buckets.get(key)
